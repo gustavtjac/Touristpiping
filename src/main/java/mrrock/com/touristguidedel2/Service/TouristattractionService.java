@@ -1,7 +1,9 @@
 package mrrock.com.touristguidedel2.Service;
 
 
+
 import mrrock.com.touristguidedel2.Model.Tags;
+
 import mrrock.com.touristguidedel2.Model.Touristattraction;
 import mrrock.com.touristguidedel2.Repository.TouristattractionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,12 @@ public class TouristattractionService {
     private TouristattractionRepository touristattractionRepository;
 
     // GET Attraction Tags
+    /** Method to find the attraction by name through contacting repository  **/
+    public Touristattraction getAttraction(String name){
+        return touristattractionRepository.getAttraction(name);
+    }
+
+    // GET attraction tags
     public List<Tags> getAttractionsTags(String name) {
         List<Tags> listOfTags = touristattractionRepository.getAttractionsTags(name);
         return listOfTags;
@@ -36,5 +44,6 @@ public class TouristattractionService {
     public Touristattraction updateAttraction(Touristattraction touristattraction) {
         return touristattractionRepository.updateAttraction(touristattraction);
     }
+
 
 }

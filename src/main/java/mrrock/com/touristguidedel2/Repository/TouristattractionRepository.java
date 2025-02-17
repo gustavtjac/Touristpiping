@@ -46,9 +46,14 @@ public class TouristattractionRepository {
                 attraction.setName(touristattraction.getName());
                 attraction.setTags(touristattraction.getTags());
                 return attraction;
+
+    /** Method to find attraction from name requests **/
+    public Touristattraction getAttraction(String name){
+        for (Touristattraction t :touristattractionList){
+            if (name.equalsIgnoreCase(t.getName())){
+                return t;
             }
         }
         return null;
     }
-
 }
