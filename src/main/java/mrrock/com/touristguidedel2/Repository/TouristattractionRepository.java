@@ -13,6 +13,14 @@ import java.util.List;
 public class TouristattractionRepository {
     private List<Touristattraction> touristattractionList = new ArrayList<>();
 
+    public List<Touristattraction> getAllAttractions(){
+        return touristattractionList;
+    }
+
+    public Touristattraction saveAttraction(Touristattraction touristattraction){
+        touristattractionList.add(touristattraction);
+        return touristattraction;
+    }
 
     // GET attraction tags
     public List<Tags> getAttractionsTags(String name) {

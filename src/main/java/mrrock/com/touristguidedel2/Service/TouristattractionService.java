@@ -2,9 +2,13 @@ package mrrock.com.touristguidedel2.Service;
 
 
 import mrrock.com.touristguidedel2.Model.Tags;
+import mrrock.com.touristguidedel2.Model.Touristattraction;
 import mrrock.com.touristguidedel2.Repository.TouristattractionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -18,4 +22,15 @@ public class TouristattractionService {
         List<Tags> listOfTags = touristattractionRepository.getAttractionsTags(name);
         return listOfTags;
     }
+
+    public List<Touristattraction> getAllAttractions(){
+       return touristattractionRepository.getAllAttractions();
+    }
+
+    public Touristattraction saveAttraction(Touristattraction touristattraction){
+        touristattractionRepository.saveAttraction(touristattraction);
+        return touristattraction;
+    }
+
+
 }
