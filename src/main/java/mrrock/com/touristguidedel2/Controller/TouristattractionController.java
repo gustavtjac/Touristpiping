@@ -1,6 +1,5 @@
 package mrrock.com.touristguidedel2.Controller;
-
-
+import mrrock.com.touristguidedel2.Model.Tags;
 import mrrock.com.touristguidedel2.Model.Touristattraction;
 import mrrock.com.touristguidedel2.Service.TouristattractionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +33,10 @@ public class TouristattractionController {
 
 
 
-
+    @GetMapping("/add")
+    public String showAddAttractionForm(Model model) {
+        model.addAttribute("attraction", new Touristattraction());
+        model.addAttribute("tags", Tags.values()); // Enum værdier til Thymeleaf
+        return "addAttractionForm"; // Henviser til HTML-filen
+    }
 }

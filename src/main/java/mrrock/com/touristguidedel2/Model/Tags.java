@@ -6,8 +6,8 @@ public enum Tags {
 
 private String screenName;
 
-    Tags(String getScreeName) {
-        this.screenName = getScreeName;
+    Tags(String getScreenName) {
+        this.screenName = getScreenName;
     }
 
     public String getScreenName() {
