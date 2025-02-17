@@ -45,5 +45,10 @@ public class TouristattractionService {
         return touristattractionRepository.updateAttraction(touristattraction);
     }
 
+    // POST Delete Attraction
+    public Touristattraction deleteAttraction(String name) {
+        return touristattractionRepository.deleteAttraction(name);
+    }
+
 
 }

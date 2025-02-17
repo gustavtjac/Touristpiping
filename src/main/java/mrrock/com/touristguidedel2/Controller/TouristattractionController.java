@@ -29,14 +29,14 @@ public class TouristattractionController {
     }
 
     /** Method to handle name requests **/
-    @GetMapping("/{name}")
+    @GetMapping("/attractions/{name}")
     public String getAttraction(@PathVariable String name, Model model){
         model.addAttribute("attraction",touristattractionService.getAttraction(name));
         return "singleattraction";
     }
 
     // GET attraction tags
-    @GetMapping("/attractons/{name}/tags")
+    @GetMapping("/attractions/{name}/tags")
     public String getAttractionsTags(@PathVariable String name, Model model) {
         List<Tags> listOfTags = touristattractionService.getAttractionsTags(name);
         model.addAttribute(listOfTags);
@@ -62,5 +62,11 @@ public class TouristattractionController {
     @PostMapping("/attractions/update")
     public ResponseEntity<Touristattraction> updateAttractions(@RequestBody Touristattraction touristattraction) {
         return new ResponseEntity<Touristattraction>(touristattractionService.updateAttraction(touristattraction), HttpStatus.OK);
+    }
+
+    // POST Delete Attraction
+    @PostMapping("/attractions/delete/{name}")
+    public ResponseEntity<Touristattraction> deleteAttraction(@PathVariable String name) {
+        return new ResponseEntity<Touristattraction>(touristattractionService.deleteAttraction(name), HttpStatus.OK);
     }
 }

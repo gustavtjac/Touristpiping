@@ -13,6 +13,10 @@ import java.util.List;
 public class TouristattractionRepository {
     private List<Touristattraction> touristattractionList = new ArrayList<>();
 
+    public TouristattractionRepository() {
+        touristattractionList.add(new Touristattraction("Tivoli","Ost"));
+    }
+
     // GET All Attractions
     public List<Touristattraction> getAllAttractions(){
         return touristattractionList;
@@ -46,14 +50,30 @@ public class TouristattractionRepository {
                 attraction.setName(touristattraction.getName());
                 attraction.setTags(touristattraction.getTags());
                 return attraction;
+            }
+        }
+        return null;
+    }
 
     /** Method to find attraction from name requests **/
-    public Touristattraction getAttraction(String name){
-        for (Touristattraction t :touristattractionList){
+    public Touristattraction getAttraction(String name) {
+        for (Touristattraction t :touristattractionList) {
             if (name.equalsIgnoreCase(t.getName())){
                 return t;
             }
         }
         return null;
+    }
+
+    public Touristattraction deleteAttraction(String name) {
+        Touristattraction temp = null;
+        for (Touristattraction t : touristattractionList) {
+            if (t.getName().equalsIgnoreCase(name)) {
+                temp = t;
+                touristattractionList.remove(t);
+                return temp;
+            }
+        }
+        return temp;
     }
 }

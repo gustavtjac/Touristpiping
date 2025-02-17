@@ -10,7 +10,11 @@ public class Touristattraction {
     private Tags[] tags;
 
     public Touristattraction() {
+    }
 
+    public Touristattraction(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public UUID getId() {
