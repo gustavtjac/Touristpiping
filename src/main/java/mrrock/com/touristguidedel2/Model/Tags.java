@@ -1,0 +1,16 @@
+package mrrock.com.touristguidedel2.Model;
+
+public enum Tags {
+    RESTAURANT("Restaurant"),GRATIS("Gratis"),BIOGRAF("Biograf"),BØRNEVENLIG("Børnevenlig"),MUSEUM("Museum"),NATUR("Natur"),KULTURELT("Kulturelt"),HISTORISK("Historisk"),SHOPPING("Shoping"),MADOGDRIKKE("Mad og drikke");
+
+
+private String screenName;
+
+    Tags(String getScreeName) {
+        this.screenName = getScreeName;
+    }
+
+    public String getScreenName() {
+        return screenName;
+    }
+}
