@@ -55,8 +55,8 @@ public class TouristattractionRepository {
         return null;
     }
 
-    /** Method to find attraction from name requests **/
-    public Touristattraction getAttraction(String name) {
+    // GET Attraction By Name
+    public Touristattraction getAttractionByName(String name) {
         for (Touristattraction t :touristattractionList) {
             if (name.equalsIgnoreCase(t.getName())){
                 return t;
@@ -65,6 +65,7 @@ public class TouristattractionRepository {
         return null;
     }
 
+    // POST Delete Attraction
     public Touristattraction deleteAttraction(String name) {
         Touristattraction temp = null;
         for (Touristattraction t : touristattractionList) {

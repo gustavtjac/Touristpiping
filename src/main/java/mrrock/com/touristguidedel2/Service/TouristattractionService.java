@@ -19,13 +19,12 @@ public class TouristattractionService {
     @Autowired
     private TouristattractionRepository touristattractionRepository;
 
-    // GET Attraction Tags
-    /** Method to find the attraction by name through contacting repository  **/
-    public Touristattraction getAttraction(String name){
-        return touristattractionRepository.getAttraction(name);
+    // GET Attraction By Name
+    public Touristattraction getAttractionByName(String name){
+        return touristattractionRepository.getAttractionByName(name);
     }
 
-    // GET attraction tags
+    // GET Attraction Tags
     public List<Tags> getAttractionsTags(String name) {
         List<Tags> listOfTags = touristattractionRepository.getAttractionsTags(name);
         return listOfTags;

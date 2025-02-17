@@ -28,19 +28,19 @@ public class TouristattractionController {
         return "attractions";
     }
 
-    /** Method to handle name requests **/
+    // GET Attraction By Name
     @GetMapping("/attractions/{name}")
-    public String getAttraction(@PathVariable String name, Model model){
-        model.addAttribute("attraction",touristattractionService.getAttraction(name));
-        return "singleattraction";
+    public String getAttractionByName(@PathVariable String name, Model model){
+        model.addAttribute("attraction",touristattractionService.getAttractionByName(name));
+        return "getAttraction-name";
     }
 
-    // GET attraction tags
+    // GET Attraction Tags
     @GetMapping("/attractions/{name}/tags")
     public String getAttractionsTags(@PathVariable String name, Model model) {
         List<Tags> listOfTags = touristattractionService.getAttractionsTags(name);
         model.addAttribute(listOfTags);
-        return "get-tags";
+        return "getAttraction-tags";
     }
 
     // POST Save Attraction
