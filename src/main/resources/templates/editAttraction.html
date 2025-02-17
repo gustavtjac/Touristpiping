@@ -30,7 +30,50 @@
 </header>
 
 <main>
+    <h1 th:text="${(attraction.name == null || attraction.name.isEmpty())} ? 'Tilføj ny Attraktion' : 'Rediger Attraktion'"></h1>
 
+    <form th:action="@{/save}" th:object="${attraction}" method="post">
+
+        <div>
+            <label for="name">Navn:</label>
+            <input type="text" th:field="*{name}" id="name"
+                   th:attr="readonly=${(attraction.name != null && !attraction.name.isEmpty())}" />
+        </div>
+
+        <div>
+            <label for="city">By:</label>
+            <select th:field="*{city}" id="city">
+                <option value="">-- Vælg en by --</option>
+                <option th:each="cityItem : ${allCities}"
+                        th:value="${cityItem}"
+                        th:text="${cityItem}">
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label for="description">Beskrivelse:</label>
+            <textarea th:field="*{description}" id="description"></textarea>
+        </div>
+
+        <!-- Tags (checkboxes) -->
+        <div>
+            <p>Vælg Tags:</p>
+            <div th:each="tagItem : ${allTags}">
+                <input type="checkbox"
+                       th:field="*{tags}"
+                       th:value="${tagItem}"
+                       id="${tagItem}" />
+                <label th:for="${tagItem}" th:text="${tagItem}"></label>
+            </div>
+        </div>
+
+        <br/>
+        <button type="submit">Gem</button>
+    </form>
+
+    <!-- Tilbage til manage-siden -->
+    <p><a th:href="@{/manage}">Tilbage</a></p>
 </main>
 
 <footer>

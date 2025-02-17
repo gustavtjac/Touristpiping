@@ -30,8 +30,38 @@
 </header>
 
 <main>
+    <h1>Administrér Attraktioner</h1>
+
+    <!-- Vis en oversigt over attraktioner med knapper til Edit og Delete -->
+    <table>
+        <thead>
+        <tr>
+            <th>Navn</th>
+            <th>By</th>
+            <th>Beskrivelse</th>
+            <th>Handlinger</th>
+        </tr>
+        </thead>
+        <tbody th:each="attraction : ${attractions}">
+        <tr>
+            <td th:text="${attraction.name}">Attraktion Navn</td>
+            <td th:text="${attraction.city}">Attraktion By</td>
+            <td th:text="${attraction.description}">Attraktion Beskrivelse</td>
+            <td>
+                <a th:href="@{'/edit/' + ${attraction.name}}">Rediger</a>
+                &nbsp;|&nbsp;
+                <a th:href="@{'/delete/' + ${attraction.name}}">Slet</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Knap til at tilføje en ny attraktion (peger på /edit uden en name) -->
+    <br/>
+    <a th:href="@{/edit}">Tilføj ny Attraktion</a>
 
 </main>
+
 
 <footer>
     <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder forbeholdt.</p>
