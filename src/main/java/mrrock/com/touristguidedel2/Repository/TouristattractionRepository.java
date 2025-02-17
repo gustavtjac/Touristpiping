@@ -36,4 +36,18 @@ public class TouristattractionRepository {
         return foundTags;
     }
 
+    /** Method to find attraction from name requests **/
+    public Touristattraction getAttraction(String name){
+        for (Touristattraction t :touristattractionList){
+            if (name.equalsIgnoreCase(t.getName())){
+                return t;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
 }

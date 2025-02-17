@@ -28,6 +28,12 @@ public class TouristattractionController {
         return "attractions";
     }
 
+    /** Method to handle name requests **/
+    @GetMapping("/{name}")
+    public String getAttraction(@PathVariable String name, Model model){
+        model.addAttribute("attraction",touristattractionService.getAttraction(name));
+        return "singleattraction";
+    }
 
     // GET attraction tags
     @GetMapping("/{name}/tags")
