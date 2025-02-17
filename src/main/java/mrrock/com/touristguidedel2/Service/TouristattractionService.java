@@ -19,6 +19,7 @@ public class TouristattractionService {
     @Autowired
     private TouristattractionRepository touristattractionRepository;
 
+    // GET Attraction Tags
     /** Method to find the attraction by name through contacting repository  **/
     public Touristattraction getAttraction(String name){
         return touristattractionRepository.getAttraction(name);
@@ -29,16 +30,20 @@ public class TouristattractionService {
         List<Tags> listOfTags = touristattractionRepository.getAttractionsTags(name);
         return listOfTags;
     }
-
+    // GET All Attractions
     public List<Touristattraction> getAllAttractions(){
        return touristattractionRepository.getAllAttractions();
     }
-
+    // POST Save Attraction
     public Touristattraction saveAttraction(Touristattraction touristattraction){
         touristattractionRepository.saveAttraction(touristattraction);
         return touristattraction;
     }
 
+    // POST Update Attraction
+    public Touristattraction updateAttraction(Touristattraction touristattraction) {
+        return touristattractionRepository.updateAttraction(touristattraction);
+    }
 
 
 }
