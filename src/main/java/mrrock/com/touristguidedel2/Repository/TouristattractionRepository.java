@@ -13,16 +13,18 @@ import java.util.List;
 public class TouristattractionRepository {
     private List<Touristattraction> touristattractionList = new ArrayList<>();
 
+    // GET All Attractions
     public List<Touristattraction> getAllAttractions(){
         return touristattractionList;
     }
 
+    // POST Save Attraction
     public Touristattraction saveAttraction(Touristattraction touristattraction){
         touristattractionList.add(touristattraction);
         return touristattraction;
     }
 
-    // GET attraction tags
+    // GET Attraction Tags
     public List<Tags> getAttractionsTags(String name) {
         List<Tags> foundTags = new ArrayList<>();
         for (Touristattraction attractions : touristattractionList) {
@@ -34,6 +36,19 @@ public class TouristattractionRepository {
 
         }
         return foundTags;
+    }
+
+    // POST Update Attraction
+    public Touristattraction updateAttraction(Touristattraction touristattraction) {
+        for (Touristattraction attraction : touristattractionList) {
+            if (attraction.getId().equals(touristattraction.getId())) {
+                attraction.setDescription(touristattraction.getDescription());
+                attraction.setName(touristattraction.getName());
+                attraction.setTags(touristattraction.getTags());
+                return attraction;
+            }
+        }
+        return null;
     }
 
 }

@@ -17,20 +17,24 @@ public class TouristattractionService {
     @Autowired
     private TouristattractionRepository touristattractionRepository;
 
-    // GET attraction tags
+    // GET Attraction Tags
     public List<Tags> getAttractionsTags(String name) {
         List<Tags> listOfTags = touristattractionRepository.getAttractionsTags(name);
         return listOfTags;
     }
-
+    // GET All Attractions
     public List<Touristattraction> getAllAttractions(){
        return touristattractionRepository.getAllAttractions();
     }
-
+    // POST Save Attraction
     public Touristattraction saveAttraction(Touristattraction touristattraction){
         touristattractionRepository.saveAttraction(touristattraction);
         return touristattraction;
     }
 
+    // POST Update Attraction
+    public Touristattraction updateAttraction(Touristattraction touristattraction) {
+        return touristattractionRepository.updateAttraction(touristattraction);
+    }
 
 }

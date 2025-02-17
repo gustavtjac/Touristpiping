@@ -21,7 +21,7 @@ public class TouristattractionController {
     @Autowired
     private TouristattractionService  touristattractionService;
 
-
+    // GET All Attractions
     @GetMapping("/attractions")
     public String getAllAttractions(Model model){
         model.addAttribute("attractionList",touristattractionService.getAllAttractions());
@@ -30,23 +30,31 @@ public class TouristattractionController {
 
 
     // GET attraction tags
-    @GetMapping("/{name}/tags")
+    @GetMapping("/attractons/{name}/tags")
     public String getAttractionsTags(@PathVariable String name, Model model) {
         List<Tags> listOfTags = touristattractionService.getAttractionsTags(name);
         model.addAttribute(listOfTags);
         return "get-tags";
     }
+
+    // POST Save Attraction
     @PostMapping("/attractions/save")
     public ResponseEntity<Touristattraction> saveAttraction(@RequestBody Touristattraction touristattraction){
         touristattractionService.saveAttraction(touristattraction);
         return new ResponseEntity<Touristattraction>(touristattraction, HttpStatus.OK);
     }
 
-
-    @GetMapping("/add")
+    // GET Add attraction
+    @GetMapping("/attractions/add")
     public String showAddAttractionForm(Model model) {
         model.addAttribute("attraction", new Touristattraction());
         model.addAttribute("tags", Tags.values()); // Enum værdier til Thymeleaf
         return "addAttractionForm"; // Henviser til HTML-filen
+    }
+
+    // POST Update Attraction
+    @PostMapping("/attractions/update")
+    public ResponseEntity<Touristattraction> updateAttractions(@RequestBody Touristattraction touristattraction) {
+        return new ResponseEntity<Touristattraction>(touristattractionService.updateAttraction(touristattraction), HttpStatus.OK);
     }
 }
