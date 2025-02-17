@@ -30,7 +30,32 @@
 </header>
 
 <main>
+    <h1>Liste over alle attraktioner</h1>
 
+    <!-- Tabel med attraktioner -->
+    <table>
+        <thead>
+        <tr>
+            <th>Navn</th>
+            <th>By</th>
+            <th>Beskrivelse</th>
+            <th>Tags</th>
+        </tr>
+        </thead>
+        <tbody th:each="attraction : ${attractions}">
+        <tr>
+            <td th:text="${attraction.name}"></td>
+            <td th:text="${attraction.city}"></td>
+            <td th:text="${attraction.description}"></td>
+            <td>
+                    <span th:each="tag : ${attraction.tags}">
+                        <span th:text="${tag}"></span>
+                        <span th:if="${!${attraction.tags}.isLast()}">, </span>
+                    </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 
 <footer>
