@@ -17,6 +17,12 @@ public class Touristattraction {
         this.description = description;
     }
 
+    public Touristattraction(String name, String description, Tags[] tags) {
+        this.name = name;
+        this.description = description;
+        this.tags = tags;
+    }
+
     public UUID getId() {
         return id;
     }

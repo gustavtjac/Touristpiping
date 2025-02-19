@@ -6,6 +6,7 @@ import mrrock.com.touristguidedel2.Model.Touristattraction;
 import org.springframework.boot.autoconfigure.web.reactive.TomcatReactiveWebServerFactoryCustomizer;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,12 @@ import java.util.List;
 public class TouristattractionRepository {
     private List<Touristattraction> touristattractionList = new ArrayList<>();
 
+
+    private Tags[] testTags = {Tags.BIOGRAF,Tags.KULTURELT};
+
     public TouristattractionRepository() {
-        touristattractionList.add(new Touristattraction("Tivoli","Ost"));
+        touristattractionList.add(new Touristattraction("Tivoli","Ost",testTags));
+        touristattractionList.add(new Touristattraction("gaming","Ost",testTags));
     }
 
     // GET All Attractions

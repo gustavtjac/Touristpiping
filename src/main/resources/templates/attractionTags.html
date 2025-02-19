@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${attraction.getName} + ' tags'"></title>
+</head>
+<body>
+
+<div>
+<header>
+    <h1 th:text="${attraction.getName} + ' tags'"></h1>
+</header>
+
+<div>
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>Tag</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active-row" th:each="tag : ${tagList}">
+            <td th:text="${tagList.indexOf(tag)+1}"></td>
+            <td th:text="${tag.getScreenName()}"></td>
+        </tr>
+        <!-- and so on... -->
+        </tbody>
+    </table>
+</div>
+</div>
+
+</body>
+</html>

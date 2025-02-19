@@ -39,8 +39,16 @@ public class TouristattractionController {
     @GetMapping("/attractions/{name}/tags")
     public String getAttractionsTags(@PathVariable String name, Model model) {
         List<Tags> listOfTags = touristattractionService.getAttractionsTags(name);
-        model.addAttribute(listOfTags);
-        return "getAttraction-tags";
+        Touristattraction touristattraction = touristattractionService.getAttractionByName(name);
+        if (listOfTags.isEmpty()){
+            model.addAttribute("tagList","Ikke nogle tags");
+            model.addAttribute("attraction",touristattraction);
+        }
+        else{
+            model.addAttribute("attraction",touristattraction);
+            model.addAttribute("tagList",listOfTags);
+        }
+        return "attractionTags";
     }
 
     // POST Save Attraction
