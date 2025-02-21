@@ -1,5 +1,6 @@
 package mrrock.com.touristguidedel2.Controller;
 
+import mrrock.com.touristguidedel2.Model.Cities;
 import mrrock.com.touristguidedel2.Model.Tags;
 import mrrock.com.touristguidedel2.Model.Touristattraction;
 import mrrock.com.touristguidedel2.Service.TouristattractionService;
@@ -8,12 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.UUID;
 
 @Controller()
 @RequestMapping("")
@@ -53,17 +52,25 @@ public class TouristattractionController {
 
     // POST Save Attraction
     @PostMapping("/attractions/save")
-    public ResponseEntity<Touristattraction> saveAttraction(@RequestBody Touristattraction touristattraction){
-        touristattractionService.saveAttraction(touristattraction);
-        return new ResponseEntity<Touristattraction>(touristattraction, HttpStatus.OK);
+    public String saveAttraction(@RequestBody Touristattraction touristattraction){
+        if (touristattraction.getId()!=null){
+            touristattraction.setId(UUID.randomUUID());
+            touristattractionService.saveAttraction(touristattraction);
+        }
+        else{
+            touristattractionService.updateAttraction(touristattraction);
+        }
+
+        return "redirect:/attractions";
     }
 
     // GET Add attraction
     @GetMapping("/attractions/add")
     public String showAddAttractionForm(Model model) {
         model.addAttribute("attraction", new Touristattraction());
+        model.addAttribute("cities", Cities.values());
         model.addAttribute("tags", Tags.values()); // Enum værdier til Thymeleaf
-        return "addAttractionForm"; // Henviser til HTML-filen
+        return "manage"; // Henviser til HTML-filen
     }
 
     // POST Update Attraction

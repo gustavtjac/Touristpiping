@@ -4,10 +4,19 @@ package mrrock.com.touristguidedel2.Model;
 import java.util.UUID;
 
 public class Touristattraction {
-    private UUID id = UUID.randomUUID();
+    private UUID id;
     private String name;
     private String description;
     private Tags[] tags;
+    private Cities city;
+
+    public Cities getCity() {
+        return city;
+    }
+
+    public void setCity(Cities city) {
+        this.city = city;
+    }
 
     public Touristattraction() {
     }
