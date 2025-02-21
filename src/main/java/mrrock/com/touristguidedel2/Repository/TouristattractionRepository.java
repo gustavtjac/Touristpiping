@@ -1,6 +1,7 @@
 package mrrock.com.touristguidedel2.Repository;
 
 
+import mrrock.com.touristguidedel2.Model.Cities;
 import mrrock.com.touristguidedel2.Model.Tags;
 import mrrock.com.touristguidedel2.Model.Touristattraction;
 import org.springframework.boot.autoconfigure.web.reactive.TomcatReactiveWebServerFactoryCustomizer;

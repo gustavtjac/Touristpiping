@@ -31,6 +31,13 @@ public class Touristattraction {
         this.description = description;
         this.tags = tags;
     }
+    public Touristattraction(String name, String description, Tags[] tags, Cities city) {
+        this.name = name;
+        this.description = description;
+        this.tags = tags;
+        this.city = city;
+    }
+
 
     public UUID getId() {
         return id;
