@@ -54,6 +54,7 @@ public class TouristattractionRepository {
                 attraction.setDescription(touristattraction.getDescription());
                 attraction.setName(touristattraction.getName());
                 attraction.setTags(touristattraction.getTags());
+                attraction.setCity(touristattraction.getCity());
                 return attraction;
             }
         }
