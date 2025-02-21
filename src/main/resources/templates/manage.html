@@ -30,6 +30,28 @@
 </header>
 
 <main>
+<!--Tilføjer en attraction til listen-->
+    <form th:action="@{/attractions/save}" method="post">
+        <label for="name">Navn:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="city">Vælg by:</label>
+        <select id="city" name="city">
+            <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
+        </select>
+
+        <label for="tags">Vælg kategorier:</label>
+        <select id="tags" name="tags" multiple>
+            <option th:each="tag : ${tags}" th:value="${tag}" th:text="${tag}"></option>
+        </select>
+
+        <label for="description">Beskrivelse:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <button type="submit">Tilføj Attraktion</button>
+    </form>
+
+
     <h1>Administrér Attraktioner</h1>
 
     <!-- Vis en oversigt over attraktioner med knapper til Edit og Delete -->
@@ -42,29 +64,31 @@
             <th>Handlinger</th>
         </tr>
         </thead>
-        <tbody th:each="attraction : ${attractions}">
+        <tbody th:each="attraction : ${attractionList}">
         <tr>
             <td th:text="${attraction.name}">Attraktion Navn</td>
             <td th:text="${attraction.city}">Attraktion By</td>
             <td th:text="${attraction.description}">Attraktion Beskrivelse</td>
             <td>
-                <a th:href="@{'/edit/' + ${attraction.name}}">Rediger</a>
+                <a th:href="@{'/attractions/edit/' + ${attraction.name}}">Rediger</a>
                 &nbsp;|&nbsp;
-                <a th:href="@{'/delete/' + ${attraction.name}}">Slet</a>
+<!--                Vi er nød til at bruge form fordi det er en post request-->
+                <form th:action="@{'/attractions/delete/' + ${attraction.name}}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?')">Slet</button>
+                </form>
             </td>
         </tr>
         </tbody>
     </table>
 
     <!-- Knap til at tilføje en ny attraktion (peger på /edit uden en name) -->
-    <br/>
-    <a th:href="@{/edit}">Tilføj ny Attraktion</a>
 
 </main>
 
 
 <footer>
-    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder forbeholdt.</p>
+    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder
+        forbeholdt.</p>
     <p><a th:href="@{/contact}">Kontakt os</a> | <a th:href="@{/about}">Om os</a></p>
 </footer>
 

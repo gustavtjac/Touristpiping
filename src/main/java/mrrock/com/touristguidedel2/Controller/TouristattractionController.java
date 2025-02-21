@@ -52,7 +52,7 @@ public class TouristattractionController {
 
     // POST Save Attraction
     @PostMapping("/attractions/save")
-    public String saveAttraction(@RequestBody Touristattraction touristattraction){
+    public String saveAttraction(@ModelAttribute Touristattraction touristattraction){
             touristattractionService.saveAttraction(touristattraction);
         return "redirect:/attractions";
     }
@@ -78,4 +78,13 @@ public class TouristattractionController {
     public String deleteAttraction(@PathVariable String name) {
         return "redirect:/attractions";
     }
+
+    @GetMapping("/attractions/edit/{name}")
+    public String editAttraction(@PathVariable String name, Model model) {
+        model.addAttribute("attraction", touristattractionService.getAttractionByName(name));
+        model.addAttribute("cities", Cities.values());
+        model.addAttribute("tags", Tags.values());
+        return "editAttraction";
+    }
+
 }
