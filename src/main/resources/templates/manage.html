@@ -31,7 +31,7 @@
 
 <main>
 <!--Tilføjer en attraction til listen-->
-    <form th:action="@{/attractions/save}" method="post">
+    <form th:action="@{/attractions/save}" method="post" class="add-form">
         <label for="name">Navn:</label>
         <input type="text" id="name" name="name" required>
 
@@ -55,7 +55,7 @@
     <h1>Administrér Attraktioner</h1>
 
     <!-- Vis en oversigt over attraktioner med knapper til Edit og Delete -->
-    <table>
+    <table class="manage-table">
         <thead>
         <tr>
             <th>Navn</th>
@@ -70,18 +70,17 @@
             <td th:text="${attraction.city}">Attraktion By</td>
             <td th:text="${attraction.description}">Attraktion Beskrivelse</td>
             <td>
-                <a th:href="@{'/attractions/edit/' + ${attraction.name}}">Rediger</a>
+                <a th:href="@{'/attractions/edit/' + ${attraction.name}}" class="btn-link">Rediger</a>
                 &nbsp;|&nbsp;
 <!--                Vi er nød til at bruge form fordi det er en post request-->
                 <form th:action="@{'/attractions/delete/' + ${attraction.name}}" method="post" style="display:inline;">
-                    <button type="submit" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?')">Slet</button>
+                    <button type="submit" class="btn-delete" onclick="return confirm('Er du sikker på, at du vil slette denne attraktion?')">Slet</button>
                 </form>
             </td>
         </tr>
         </tbody>
     </table>
 
-    <!-- Knap til at tilføje en ny attraktion (peger på /edit uden en name) -->
 
 </main>
 
