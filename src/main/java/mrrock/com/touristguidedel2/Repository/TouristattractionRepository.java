@@ -18,9 +18,13 @@ public class TouristattractionRepository {
     private Tags[] testTags = {Tags.BIOGRAF,Tags.KULTURELT};
 
     public TouristattractionRepository() {
-        touristattractionList.add(new Touristattraction("Tivoli","Ost",testTags));
-        touristattractionList.add(new Touristattraction("gaming","Ost",testTags));
+        touristattractionList.add(new Touristattraction("Tivoli", "Forlystelsespark i hjertet af København", new Tags[]{Tags.KULTURELT, Tags.BØRNEVENLIG}, Cities.KOBENHAVN));
+        touristattractionList.add(new Touristattraction("Den Lille Havfrue", "Ikonisk statue ved Langelinie", new Tags[]{Tags.HISTORISK, Tags.GRATIS}, Cities.KOBENHAVN));
+        touristattractionList.add(new Touristattraction("Legoland", "Temapark med LEGO-tema", new Tags[]{Tags.BØRNEVENLIG, Tags.KULTURELT}, Cities.BILLUND));
+        touristattractionList.add(new Touristattraction("Aros Kunstmuseum", "Moderne kunstmuseum", new Tags[]{Tags.KULTURELT, Tags.MUSEUM}, Cities.AARHUS));
+        touristattractionList.add(new Touristattraction("Skagen Gren", "Danmarks nordligste punkt", new Tags[]{Tags.NATUR, Tags.GRATIS}, Cities.SKAGEN));
     }
+
 
     // GET All Attractions
     public List<Touristattraction> getAllAttractions(){
