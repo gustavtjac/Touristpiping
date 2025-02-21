@@ -4,7 +4,7 @@ package mrrock.com.touristguidedel2.Model;
 import java.util.UUID;
 
 public class Touristattraction {
-    private UUID id;
+    private UUID id =  UUID.randomUUID();
     private String name;
     private String description;
     private Tags[] tags;

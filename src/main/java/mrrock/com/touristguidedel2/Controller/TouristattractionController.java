@@ -53,14 +53,7 @@ public class TouristattractionController {
     // POST Save Attraction
     @PostMapping("/attractions/save")
     public String saveAttraction(@RequestBody Touristattraction touristattraction){
-        if (touristattraction.getId()!=null){
-            touristattraction.setId(UUID.randomUUID());
             touristattractionService.saveAttraction(touristattraction);
-        }
-        else{
-            touristattractionService.updateAttraction(touristattraction);
-        }
-
         return "redirect:/attractions";
     }
 
@@ -75,13 +68,14 @@ public class TouristattractionController {
 
     // POST Update Attraction
     @PostMapping("/attractions/update")
-    public ResponseEntity<Touristattraction> updateAttractions(@RequestBody Touristattraction touristattraction) {
-        return new ResponseEntity<Touristattraction>(touristattractionService.updateAttraction(touristattraction), HttpStatus.OK);
+    public String updateAttractions(@RequestBody Touristattraction touristattraction) {
+        touristattractionService.updateAttraction(touristattraction);
+        return "redirect:/attractions/add";
     }
 
     // POST Delete Attraction
     @PostMapping("/attractions/delete/{name}")
-    public ResponseEntity<Touristattraction> deleteAttraction(@PathVariable String name) {
-        return new ResponseEntity<Touristattraction>(touristattractionService.deleteAttraction(name), HttpStatus.OK);
+    public String deleteAttraction(@PathVariable String name) {
+        return "redirect:/attractions";
     }
 }
