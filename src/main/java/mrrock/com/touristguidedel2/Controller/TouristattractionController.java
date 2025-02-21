@@ -67,11 +67,15 @@ public class TouristattractionController {
     }
 
     // POST Update Attraction
+    //Har ændret lidt i metoden, da den før brugte RequestBody, men nu bruger ModelAttribute, fordi en <form> ikke er komaptiable med RequestBody
     @PostMapping("/attractions/update")
-    public String updateAttractions(@RequestBody Touristattraction touristattraction) {
+    public String updateAttractions(@ModelAttribute Touristattraction touristattraction) {
         touristattractionService.updateAttraction(touristattraction);
-        return "redirect:/attractions/add";
+        return "redirect:/manage"; // Tilbage til administrationssiden efter opdatering
     }
+
+
+
 
     // POST Delete Attraction
     @PostMapping("/attractions/delete/{name}")
