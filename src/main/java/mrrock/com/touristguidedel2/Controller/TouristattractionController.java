@@ -76,8 +76,6 @@ public class TouristattractionController {
     }
 
 
-
-
     // POST Delete Attraction
     @PostMapping("/attractions/delete/{name}")
     public String deleteAttraction(@PathVariable String name) {
