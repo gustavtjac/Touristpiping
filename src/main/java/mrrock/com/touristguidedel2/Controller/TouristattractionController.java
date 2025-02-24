@@ -60,6 +60,7 @@ public class TouristattractionController {
     // GET Add attraction
     @GetMapping("/attractions/add")
     public String showAddAttractionForm(Model model) {
+        model.addAttribute("attractionList",touristattractionService.getAllAttractions());
         model.addAttribute("attraction", new Touristattraction());
         model.addAttribute("cities", Cities.values());
         model.addAttribute("tags", Tags.values()); // Enum værdier til Thymeleaf
