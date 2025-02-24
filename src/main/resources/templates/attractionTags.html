@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${attraction.getName} + ' tags'"></title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css?v=0.01}">
 
 </head>
 
@@ -21,16 +21,19 @@
         </nav>
     </header>
 
-    <main></main>
-    <div class="card" style="width: 18rem;">
-        <div class="card-header" th:text="${attraction.getName() + ' tags'}">
+    <main>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header" th:text="${attraction.getName() + ' tags'}">
+            </div>
+            <ul class="list-group list-group-flush" th:each="tag : ${tagList}">
+                <li class="list-group-item" th:text="${tagList.indexOf(tag)+1} + '. ' + ${tag}"></li>
+            </ul>
         </div>
-        <ul class="list-group list-group-flush" th:each="tag : ${tagList}">
-            <li class="list-group-item" th:text="${tagList.indexOf(tag)+1} + '. ' + ${tag}"></li>
-        </ul>
-    </div>
 
     </main>
+
+
+
 
 </body>
 

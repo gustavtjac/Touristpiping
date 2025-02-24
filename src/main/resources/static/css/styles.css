@@ -10,6 +10,8 @@ body {
     background-color: var(--primær-farve);
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #logobillede {
@@ -31,6 +33,18 @@ header {
     padding: 0;
     margin: 0;
 }
+
+/* Herunder styling for at gøre at siden er propotionel */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+main {
+    flex: 1;
+}
+
+
+
 
 /* Herunder navbar styling */
 nav ul {
@@ -266,8 +280,6 @@ nav ul li a:hover {
 footer {
     position: relative;
     text-align: center;
-    margin: 0px;
-    margin-top: 50px;
     background-color: var(--overskrift-farve);
     display: flex;
     justify-content: space-evenly;
