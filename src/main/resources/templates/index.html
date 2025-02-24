@@ -73,8 +73,12 @@
             <p>Velkommen til TouristGuide.dk – din ultimative guide til Danmarks bedste oplevelser!
                 Vores mål er at gøre din rejse så nem og inspirerende som muligt. Vi samler de mest spændende attraktioner, skjulte perler og lokale favoritter, så du hurtigt kan finde de oplevelser, der passer til dig. Uanset om du er til historiske slotte, smukke naturområder, pulserende storbyliv eller hyggelige landsbyer, har vi noget for enhver smag.
                 Klik dig videre til vores håndplukkede attraktioner, og planlæg din næste eventyr i Danmark!
-                <br>➡ Find din næste oplevelse her:</p>
-            <button>Klik her!</button>
+                <br>
+                <br>➡ Find din næste oplevelse her ⬇️</p>
+            <a th:href="@{/attractions}">
+                <button>Klik her!</button>
+            </a>
+
         </div>
     </div>
     
@@ -85,10 +89,7 @@
 
 </main>
 
-<footer>
-    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder forbeholdt.</p>
-    <p><a th:href="@{/contact}">Kontakt os</a> | <a th:href="@{/about}">Om os</a></p>
-</footer>
+
 
 
 <script>
@@ -113,4 +114,10 @@
     }
 </script>
 </body>
+
+<footer>
+    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder forbeholdt.</p>
+    <p><a th:href="@{/contact}">Kontakt os</a> | <a th:href="@{/about}">Om os</a></p>
+    <p>Gruppe 2: <br> Andreas, <br>Gustavo, <br>Daniel, <br> Frederik.</p>
+</footer>
 </html>
