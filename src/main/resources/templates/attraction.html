@@ -31,6 +31,23 @@
     </nav>
 </header>
 
+<div>
+    <h1 th:text="${attraction.getName()} + ' i ' + ${attraction.getCity().getScreenName() +', Danmark'}"> </h1>
+    <p th:text="${attraction.getDescription()}"></p>
+    <div th:each="tag : ${attraction.getTags()}">
+        <div class="bubble">
+            <p th:text="${tag.getScreenName()}"></p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
 
 
 </body>
