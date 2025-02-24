@@ -19,6 +19,7 @@ public class TouristattractionRepository {
     private Tags[] testTags = {Tags.BIOGRAF,Tags.KULTURELT};
 
     public TouristattractionRepository() {
+
         touristattractionList.add(new Touristattraction("Tivoli", "Forlystelsespark i hjertet af København", new Tags[]{Tags.KULTURELT, Tags.BØRNEVENLIG}, Cities.KOBENHAVN));
         touristattractionList.add(new Touristattraction("Den Lille Havfrue", "Ikonisk statue ved Langelinie", new Tags[]{Tags.HISTORISK, Tags.GRATIS}, Cities.KOBENHAVN));
         touristattractionList.add(new Touristattraction("Legoland", "Temapark med LEGO-tema", new Tags[]{Tags.BØRNEVENLIG, Tags.KULTURELT}, Cities.BILLUND));
