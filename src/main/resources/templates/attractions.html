@@ -33,7 +33,7 @@
     <h1>Liste over alle attraktioner</h1>
 
     <!-- Tabel med attraktioner -->
-    <table>
+    <table class="attraction-table">
         <thead>
         <tr>
             <th>Navn</th>
@@ -49,7 +49,7 @@
             <td th:text="${attraction.getDescription()}"></td>
             <td>
                     <span th:each="tag : ${attraction.getTags()}">
-                        <span th:text="${tag.getScreenName()}"></span>
+                        <span th:text="${tag.getScreenName()} "></span><br>
                     </span>
             </td>
         </tr>

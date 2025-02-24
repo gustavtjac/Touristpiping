@@ -47,6 +47,8 @@ nav ul li a:hover {
 /*Herunder er index.html*/
 
 
+/*Attractions.html design herunder*/
+
 
 
 
@@ -106,6 +108,10 @@ nav ul li a:hover {
     color: var(--tekst-farve);
 }
 
+
+
+
+
 /*Herunder er manage.html styling af siden*/
 
 /* Styling til add-form */
@@ -135,7 +141,7 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
-.manage-table {
+.manage-table, .attraction-table{
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
@@ -143,18 +149,22 @@ nav ul li a:hover {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.manage-table th, .manage-table td {
+.manage-table th, .manage-table td, .attraction-table th, .attraction-table td{
     padding: 10px;
     border: 1px solid var(--sekundær-farve);
     text-align: left;
 }
 
-.manage-table th {
+.manage-table th, .attraction-table th{
     background-color: var(--sekundær-farve);
     color: var(--tekst-farve);
 }
 
 .manage-table tr:nth-child(even) {
+    background-color: var(--primær-farve);
+}
+
+.attraction-table tbody:nth-child(even) {
     background-color: var(--primær-farve);
 }
 
