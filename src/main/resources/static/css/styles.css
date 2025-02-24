@@ -67,6 +67,7 @@ nav ul li a:hover {
 .edit-form {
     width: 50%;
     margin: auto;
+    margin-top: 50px;
     padding: 20px;
     border: 1px solid var(--sekundær-farve);
     border-radius: 8px;
