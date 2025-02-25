@@ -6,6 +6,7 @@
     --sekundær-farve: #BACEC1;
     --overskrift-farve: #E59560;
     --tekst-farve: #1D3124;
+
 }
 
 /*herunder er generelle stylinger*/
@@ -18,8 +19,8 @@ body {
 }
 
 #logobillede {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
     border-radius: 15px;
 }
 
@@ -59,18 +60,18 @@ main {
     border-radius: 10%;
     text-align: center;
     padding-bottom: 2em;
-color: var(--tekst-farve);
-    background-color: var(--overskrift-farve);
+    color: var(--tekst-farve);
+    background-color: var(--sekundær-farve);
 }
 .tags-card-header{
-    color: var(--overskrift-farve);
-    background-color: var(--tekst-farve);
+    color: var(--tekst-farve);
+    background-color: var(--sekundær-farve);
 }
 .tags-card-header h2{
     margin-top: 0;
     padding: 15px;
-    color: var(--overskrift-farve);
-    background-color: var(--tekst-farve);
+    color: var(--tekst-farve);
+    background-color: var(--sekundær-farve);
 }
 
 
@@ -415,6 +416,7 @@ img {
     animation-duration: 1.5s;
 }
 
+
 @keyframes fade {
     from {
         opacity: .4
@@ -429,6 +431,39 @@ img {
     .text {
         font-size: 11px
     }
+}
+
+/* Starttilstand (form er skjult) */
+/* Starttilstand: Form er skjult */
+.add-form {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* Når formen vises */
+.add-form.show {
+    display: block;
+    max-height: 800px;
+    opacity: 1;
+}
+
+/* Knappen */
+.toggle-btn {
+    background-color: var(--sekundær-farve);
+    color: var(--tekst-farve);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.toggle-btn:hover {
+    background-color: var(--primær-farve);
 }
 
 

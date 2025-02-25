@@ -32,8 +32,11 @@
 </header>
 
 <main>
-<!--Tilføjer en attraction til listen-->
-    <form th:action="@{/attractions/save}" method="post" class="add-form">
+
+    <button type="button" class="btn toggle-btn" onclick="toggleForm()">➕ Tilføj Attraktion</button>
+
+    <!-- Skjult form, der tilføjer en attraction -->
+    <form id="addForm" th:action="@{/attractions/save}" method="post" class="add-form">
         <label for="name">Navn:</label>
         <input type="text" id="name" name="name" required>
 
@@ -52,6 +55,7 @@
 
         <button class="btn" type="submit">Tilføj Attraktion</button>
     </form>
+
 
 
     <h1>Administrér Attraktioner</h1>
@@ -85,7 +89,7 @@
 
 
 </main>
-
+<script th:src="@{/javascript/script.js}"></script>
 </body>
 
 <footer>
