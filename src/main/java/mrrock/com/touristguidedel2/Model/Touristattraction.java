@@ -26,6 +26,8 @@ public class Touristattraction {
         this.description = description;
     }
 
+
+
     public Touristattraction(String name, String description, Tags[] tags) {
         this.name = name;
         this.description = description;

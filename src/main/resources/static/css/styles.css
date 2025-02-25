@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
+    --primær-font:"Roboto Condensed",serif;
     --primær-farve: #f6f4e8;
     --sekundær-farve: #BACEC1;
     --overskrift-farve: #E59560;
@@ -21,11 +24,13 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
+    font-family: var(--primær-font);
     color: var(--overskrift-farve);
     text-align: center;
 }
 
 p, a {
+    font-family: var(--primær-font);
     color: var(--tekst-farve);
 }
 
@@ -93,6 +98,32 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
+/*Herunder solo attraction*/
+.attraction-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.attraction-card-left{
+    margin: 50px;
+}
+.attraction-card-right{
+    border-radius: 15%;
+    background-color: #6bedab;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.attraction-card-right div p {
+margin: 0;
+}
+
+
 
 /*Herunder er index.html*/
 
@@ -315,7 +346,7 @@ footer {
 }
 
 body {
-    font-family: Verdana, sans-serif;
+    font-family: var(--primær-font);
 }
 
 .mySlides {
