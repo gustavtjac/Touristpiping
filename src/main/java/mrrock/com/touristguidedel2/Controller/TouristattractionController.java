@@ -85,7 +85,11 @@ public class TouristattractionController {
 
     @GetMapping("/attractions/edit/{name}")
     public String editAttraction(@PathVariable String name, Model model) {
-        model.addAttribute("attraction", touristattractionService.getAttractionByName(name));
+        Touristattraction toBeEdited = touristattractionService.getAttractionByName(name);
+        if (toBeEdited.getTags()==null){
+            toBeEdited.setTags(new Tags[]{});
+        }
+        model.addAttribute("attraction",toBeEdited);
         model.addAttribute("cities", Cities.values());
         model.addAttribute("tags", Tags.values());
         return "editAttraction";
