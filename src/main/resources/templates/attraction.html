@@ -33,21 +33,25 @@
 
 
 <main>
-    <div>
-        <h1 th:text="${attraction.getName()} + ' i ' + ${attraction.getCity().getScreenName() +', Danmark'}"> </h1>
-        <p th:text="${attraction.getDescription()}"></p>
-        <div th:each="tag : ${attraction.getTags()}">
-            <div class="bubble">
+    <section class="attraction-card">
+        <div class="attraction-card-left">
+            <h1 th:text="${attraction.name} + ' i ' + ${attraction.getCity().getScreenName() +', Danmark'}"></h1>
+            <p th:text="${attraction.getDescription()}"></p>
+        </div>
+        <div th:each="tag : ${attraction.getTags()}" class="attraction-card-right">
+            <div>
                 <p th:text="${tag.getScreenName()}"></p>
             </div>
         </div>
 
-    </div>
+
+    </section>
 
 </main>
 
 <footer>
-    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder forbeholdt.</p>
+    <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Tourist Guide. Alle rettigheder
+        forbeholdt.</p>
     <p><a th:href="@{/contact}">Kontakt os</a> | <a th:href="@{/about}">Om os</a></p>
     <p>Gruppe 2: <br> Andreas, <br>Gustavo, <br>Daniel, <br> Frederik.</p>
 </footer>

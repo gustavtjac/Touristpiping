@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --primær-font:"Roboto Condensed",serif;
+    --primær-font: "Roboto Condensed", serif;
     --primær-farve: #f6f4e8;
     --sekundær-farve: #BACEC1;
     --overskrift-farve: #E59560;
@@ -45,29 +45,33 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 main {
     flex: 1;
 }
+
 /* tagsside Styling */
-.tags-main{
+.tags-main {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2em;
 }
 
-.tags-card{
+.tags-card {
     border-radius: 10%;
     text-align: center;
     padding-bottom: 2em;
     color: var(--tekst-farve);
     background-color: var(--sekundær-farve);
 }
-.tags-card-header{
+
+.tags-card-header {
     color: var(--tekst-farve);
     background-color: var(--sekundær-farve);
 }
-.tags-card-header h2{
+
+.tags-card-header h2 {
     margin-top: 0;
     padding: 15px;
     color: var(--tekst-farve);
@@ -99,20 +103,23 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
+
 /*Herunder solo attraction*/
-.attraction-card{
+.attraction-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.attraction-card-left{
+
+.attraction-card-left {
     margin: 50px;
 }
-.attraction-card-right{
+
+.attraction-card-right {
     border-radius: 15%;
     background-color: #6bedab;
-display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
@@ -121,9 +128,8 @@ display: flex;
     padding-bottom: 4px;
 }
 .attraction-card-right div p {
-margin: 0;
+    margin: 0;
 }
-
 
 
 /*Herunder er index.html*/
@@ -224,6 +230,7 @@ margin: 0;
     height: 100px;
     resize: vertical;
 }
+
 .add-form input, .add-form textarea, .add-form select {
     width: 100%;
     padding: 8px;
